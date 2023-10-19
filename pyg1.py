@@ -1,22 +1,22 @@
-import streamlit as st
-import pandas as pd
 import pygwalker as pyg
+import pandas as pd
 import streamlit.components.v1 as components
-
-# Configuration de la page Streamlit
+import streamlit as st
+ 
+# Adjust the width of the Streamlit page
 st.set_page_config(
-    page_title="Utilisation de PyGWalker dans Streamlit avec to_html",
+    page_title="Use Pygwalker In Streamlit",
     layout="wide"
 )
-
-# Titre de la page
-st.title("Utilisation de PyGWalker dans Streamlit avec to_html")
-
-# Charger les données d'exemple
+ 
+# Add Title
+st.title("Use Pygwalker In Streamlit")
+ 
+# Import your data
 df = pd.read_csv("https://kanaries-app.s3.ap-northeast-1.amazonaws.com/public-datasets/bike_sharing_dc.csv")
-
-# Génération du HTML avec PyGWalker
+ 
+# Generate the HTML using Pygwalker
 pyg_html = pyg.to_html(df)
-
-# Intégration du HTML dans l'application Streamlit
+ 
+# Embed the HTML into the Streamlit app
 components.html(pyg_html, height=1000, scrolling=True)
